@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance;
     private ShipControl m_ShipControl;
 
+    private bool canMove = true;
 
     
     private GameObject player;
@@ -20,48 +21,60 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if(UIStateController.Instance.gameOver || UIStateController.Instance.gameParse)
+        {
+            canMove = false;
+        }
+        else
+        {
+            canMove = true;
+        }
+
         PlayerMoveInWindows();
     }
 
 
     private void PlayerMoveInWindows()
     {
-        if (Input.GetKey(KeyCode.S))
+        if(canMove)
         {
-            if (player.transform.position.y > -138.0f)
+            if (Input.GetKey(KeyCode.S))
             {
-                player.transform.position += new Vector3(0, -GetMoveSpeedInWindows(), 0);
+                if (player.transform.position.y > -138.0f)
+                {
+                    player.transform.position += new Vector3(0, -GetMoveSpeedInWindows(), 0);
+                }
             }
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
+            if (Input.GetKey(KeyCode.W))
+            {
 
-            if (player.transform.position.y < 138.0f)
-            {
-                player.transform.position += new Vector3(0, GetMoveSpeedInWindows(), 0);
+                if (player.transform.position.y < 138.0f)
+                {
+                    player.transform.position += new Vector3(0, GetMoveSpeedInWindows(), 0);
+                }
             }
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            if (player.transform.position.x < 250.0f)
+            if (Input.GetKey(KeyCode.D))
             {
-                player.transform.position += new Vector3(GetMoveSpeedInWindows(), 0, 0);
+                if (player.transform.position.x < 250.0f)
+                {
+                    player.transform.position += new Vector3(GetMoveSpeedInWindows(), 0, 0);
+                }
             }
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            if (player.transform.position.x > -260.0f)
+            if (Input.GetKey(KeyCode.A))
             {
-                player.transform.position += new Vector3(-GetMoveSpeedInWindows(), 0, 0);
+                if (player.transform.position.x > -260.0f)
+                {
+                    player.transform.position += new Vector3(-GetMoveSpeedInWindows(), 0, 0);
+                }
             }
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            PlayerAttack();
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            PlayerAttackEnd();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                PlayerAttack();
+            }
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                PlayerAttackEnd();
+            }
         }
     }
 
@@ -72,24 +85,27 @@ public class PlayerController : MonoBehaviour
     // 移动事件
     public void PlayerMove(Vector2 vec)
     {
-        Vector3 pos = Vector3.zero;
-
-        // maxY = 138.0f minY = -138.0f
-        // minX = -260.0f minX = 250.0f
-
-        if (!((player.transform.position.x > 250.0f && vec.x > 0.0f)|| (player.transform.position.x < -260.0f && vec.x < 0.0f)))
+        if(canMove)
         {
-            pos.x = vec.x;
-        }
-        if (!((player.transform.position.y > 138.0f && vec.y > 0.0f)|| (player.transform.position.y < -138.0f && vec.y < 0.0f)))
-        {
-            pos.y =vec.y;
-        }
+            Vector3 pos = Vector3.zero;
 
-        pos *= GetMoveSpeed();
-        player.transform.position += pos;
-        //PlayerMoveInWindows(vec);
-        player.transform.LookAt(player.transform.position);
+            // maxY = 138.0f minY = -138.0f
+            // minX = -260.0f minX = 250.0f
+
+            if (!((player.transform.position.x > 250.0f && vec.x > 0.0f) || (player.transform.position.x < -260.0f && vec.x < 0.0f)))
+            {
+                pos.x = vec.x;
+            }
+            if (!((player.transform.position.y > 138.0f && vec.y > 0.0f) || (player.transform.position.y < -138.0f && vec.y < 0.0f)))
+            {
+                pos.y = vec.y;
+            }
+
+            pos *= GetMoveSpeed();
+            player.transform.position += pos;
+            //PlayerMoveInWindows(vec);
+            player.transform.LookAt(player.transform.position);
+        }
     }
 
 

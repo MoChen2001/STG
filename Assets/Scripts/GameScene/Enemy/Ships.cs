@@ -76,6 +76,8 @@ public class Ships : MonoBehaviour
 
     private void Awake()
     {
+
+
         bullet_Common = Resources.Load<GameObject>("Bullet/Bullet_Cycle_Common");
         bullet_Big = Resources.Load<GameObject>("Bullet/Bullet_Cycle_Big");
         bullets = GameObject.Find("BulletParent");
@@ -91,5 +93,7 @@ public class Ships : MonoBehaviour
     {
         Debug.Log("wrong");
     }
+
+
 
 }

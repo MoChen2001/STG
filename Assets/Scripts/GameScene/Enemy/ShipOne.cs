@@ -96,8 +96,6 @@ public class ShipOne : Ships
     }
 
 
-
-
     public override void MinusLife()
     {
         life--;
@@ -106,8 +104,7 @@ public class ShipOne : Ships
             m_Shot.StopAllCoroutines();
             StopAllCoroutines();
             gameObject.SetActive(false);
-            GameObject.Destroy(gameObject,30f);
-
+            GameObject.Destroy(gameObject,3.0f);
         }
 
     }

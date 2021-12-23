@@ -50,6 +50,7 @@ public class UIStateController : MonoBehaviour
     // 改变状态为游戏结束状态
     public void GameOverState()
     {
+       
         gameOver = true;
         Time.timeScale = 0.0f;
         gamingPanel.SetActive(false);

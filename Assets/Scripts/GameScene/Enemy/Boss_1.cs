@@ -10,7 +10,6 @@ public class Boss_1 : MonoBehaviour
     private Transform m_Transform;
     private Transform player_Transform;
 
-    private AudioOnGaming audioSource;
 
 
 

@@ -10,7 +10,6 @@ public class Boss_2 : MonoBehaviour
     private Transform m_Transform;
     private Transform player_Transform;
 
-    private AudioOnGaming audioSource;
 
 
     // 子弹相关

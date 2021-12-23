@@ -81,7 +81,7 @@ public class Process_1 : MonoBehaviour
 
         for(int i = 0; i < temps.Length;i++)
         {
-            if(temps[i].active)
+            if(temps[i] != null && temps[i].activeSelf)
             {
                 if(i % 2 == 0)
                 {
@@ -134,7 +134,7 @@ public class Process_1 : MonoBehaviour
             yield return new WaitForSeconds(5.0f);
             for(int i = 0; i < temps.Length; i++)
             {
-                if (temps[i].active)
+                if (temps[i] != null && temps[i].activeSelf)
                 {
                     if (i % 2 == 0)
                     {

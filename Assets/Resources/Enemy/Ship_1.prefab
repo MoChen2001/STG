@@ -18926,6 +18926,7 @@ GameObject:
   - component: {fileID: 8007136853269287020}
   - component: {fileID: 8007136853270036162}
   - component: {fileID: 8007136853274455234}
+  - component: {fileID: 247543468}
   m_Layer: 0
   m_Name: Ship_1_Mesh
   m_TagString: enemy
@@ -19011,6 +19012,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: cc2a9593af8b4484c92c0d9fdd3de6bc, type: 3}
+--- !u!114 &247543468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8007136853272510528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e059d99c0dc2a44bc3409cac54f278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8007136853272523368
 GameObject:
   m_ObjectHideFlags: 0

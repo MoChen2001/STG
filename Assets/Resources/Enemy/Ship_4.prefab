@@ -51829,6 +51829,7 @@ GameObject:
   - component: {fileID: 3653643230425752666}
   - component: {fileID: 3653643230426757020}
   - component: {fileID: 3653643230431005570}
+  - component: {fileID: 5455943744634360750}
   m_Layer: 0
   m_Name: Ship_4_Mesh
   m_TagString: boss
@@ -51914,6 +51915,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: ac1f9e24cc2a6334e9a75bd515965ada, type: 3}
+--- !u!114 &5455943744634360750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3653643230428902810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e059d99c0dc2a44bc3409cac54f278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3653643230428908578
 GameObject:
   m_ObjectHideFlags: 0

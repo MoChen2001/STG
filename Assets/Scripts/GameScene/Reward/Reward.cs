@@ -27,6 +27,7 @@ public class Reward : MonoBehaviour
             {
                 temp.AddShotPoint();
             }
+            gameObject.GetComponentInParent<Transform>().gameObject.SetActive(false);
             GameObject.Destroy(gameObject.GetComponentInParent<Transform>().gameObject);
         }
         else if(other.tag == "wall")

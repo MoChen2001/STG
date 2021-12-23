@@ -10,6 +10,8 @@ TagManager:
   - playerMesh
   - enemy
   - boss
+  - Bullet_Enemy
+  - Bullet_Self
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,7 @@ Shader "MyShaders/JudgePoint"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            #pragma multi_compile_instancing
 
             #include "UnityCG.cginc"
 
@@ -21,16 +22,20 @@ Shader "MyShaders/JudgePoint"
             struct appdata
             {
                 float4 vertex : POSITION;
+                UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
             struct v2f
             {
                 float4 pos : SV_POSITION;
+                UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
 
             v2f vert (appdata v)
             {
+                
+                UNITY_SETUP_INSTANCE_ID(v)
                 v2f o;
 
                 o.pos = UnityObjectToClipPos(v.vertex);
@@ -39,6 +44,7 @@ Shader "MyShaders/JudgePoint"
 
             fixed4 frag (v2f i) : SV_Target
             {
+                UNITY_SETUP_INSTANCE_ID(i);
                 return _Color;
             }
             ENDCG
